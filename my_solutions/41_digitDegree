@@ -1,0 +1,30 @@
+"""
+Let's define digit degree of some positive integer as the number of times we need to replace this number with the sum of its digits until we get to a one digit number.
+
+Given an integer, find its digit degree.
+
+Example
+
+For n = 5, the output should be
+digitDegree(n) = 0;
+For n = 100, the output should be
+digitDegree(n) = 1.
+1 + 0 + 0 = 1.
+"""
+
+def digitDegree(n):
+    sumofdigits=n
+    if sumofdigits<9:
+        return 0
+    counter=0
+    while sumofdigits>9:
+        newsum=0
+        counter+=1
+        while n!=0:
+            r=n%10
+            n=n//10
+            newsum+=r
+        sumofdigits=newsum
+        n=newsum
+        
+    return counter
